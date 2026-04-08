@@ -1,0 +1,9 @@
+SELECT id, name, bank_code
+FROM payees
+ORDER BY id, name, bank_code;
+
+SELECT id, customer_id
+FROM accounts
+INNER JOIN payees ON
+id=customer_id;
+
