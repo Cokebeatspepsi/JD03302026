@@ -2,7 +2,7 @@ package entities;
 
 import java.math.BigDecimal;
 
-public class BankAccount {
+public abstract class BankAccount {
     private long id;
     private String accountNumber;
     private BigDecimal balance;
@@ -21,6 +21,7 @@ public class BankAccount {
     }
 
 
+
     public BankAccount(String accountNumber, BigDecimal balance, Boolean active) {
         if (balance.compareTo(BigDecimal.ZERO) >0 ) {
             throw new IllegalArgumentException("Starting balance must be greater than zero");
@@ -30,7 +31,6 @@ public class BankAccount {
         this.accountNumber = accountNumber;
         this.balance = balance;
         this.active = active;
-
     }
     public void  deposit(BigDecimal amount){
         if (amount.compareTo(BigDecimal.ZERO) >=0) {

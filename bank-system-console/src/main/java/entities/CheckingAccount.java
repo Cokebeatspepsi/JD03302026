@@ -11,6 +11,7 @@ public class CheckingAccount extends BankAccount {
         this.monthlyFee = monthlyFee;
 
     }
+    @Override
     public void applyMonthlyFee(BigDecimal monthlyFee){
         this.monthlyFee = monthlyFee;
     }

@@ -1,8 +1,9 @@
 import entities.BankAccount;
 import entities.SavingsAccount;
 import entities.CheckingAccount;
+import entities.Transferable;
+
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
@@ -12,6 +13,21 @@ public class Main {
                 new SavingsAccount("32429",new BigDecimal("321.21"),new BigDecimal("6.2")),
                 new CheckingAccount("56489", new BigDecimal("789.23"),new BigDecimal("15.00"))
         );
-        System.out.println(listOfAccounts.get(0).equals(listOfAccounts.get(0)));
+       // System.out.println(listOfAccounts.get(0).equals(listOfAccounts.get(0)));
+
+        Transferable[] transferables = new Transferable[10];
+        int counter = 0;
+
+        for (BankAccount bankAccount : listOfAccounts) {
+            account.applyMonthlyFee();
+            if (account instanceof Transferable transferable){
+                transferables[counter++] = transferable;
+            }
+        }
+
+        listOfAccounts.forEach(System.out::println);
+        for (Transferable transferable : transferables) {
+            System.out.println(transferable);
+        }
     }
 }

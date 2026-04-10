@@ -4,12 +4,22 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.Objects;
 
-public class SavingsAccount extends BankAccount{
+public class SavingsAccount extends BankAccount implements Transferable{
    private BigDecimal interestRate;
 
     public SavingsAccount(String accountNumber, BigDecimal balance, BigDecimal interestRate) {
         super(accountNumber, balance);
         this.interestRate = interestRate;
+    }
+
+    @Override
+    public void applyMonthlyFee();{
+        applyInterest();
+    }
+    @Override
+    public void transfer(BigDecimal amount,String toAccountNumber){
+        withdraw(amount);
+
     }
     public void applyInterest(BigDecimal interestRate){
         BigDecimal interest = (super.getBalance().multiply(interestRate)
